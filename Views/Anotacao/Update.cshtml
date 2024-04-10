@@ -1,0 +1,27 @@
+@model PropertyAnotacaoModel
+
+<div class="row-12">
+    <div class="col-12">
+        <h2>Editar informações</h2>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" asp-action="Update">
+                    <input type="hidden" asp-for="IdAnotacao">
+                    <div>
+                        <h3>Data e hora</h3>
+                    </div>
+                    <div>
+                        <input asp-for="DataAtual" type="date">
+                    </div>
+                    <div>
+                        <h3>Registro</h3>
+                    </div>
+                    <textarea input asp-for="Registros" rows="11" class="col-12"></textarea>
+                    <div>
+                        <input type="submit" value="Editar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

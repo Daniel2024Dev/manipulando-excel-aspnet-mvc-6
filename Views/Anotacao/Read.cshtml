@@ -1,0 +1,39 @@
+@model List<PropertyAnotacaoModel>
+
+<div>
+    <h2>Registros</h2>
+</div>
+<button type="button" class="btn btn-outline-primary"><a href="/Anotacao/Create">Nova anotação</a></button>
+
+@foreach (PropertyAnotacaoModel property in Model)
+{
+    @if (property.Registros == "empty")
+    {
+        <h3>Ainda não foi cadastrado nenhuma nota !</h3>
+    }
+    else
+    {
+        @if (property.Registros != "null")
+        {
+            <div class="card">
+    <div class="card-body">
+        <div>
+            <h3>Data e hora do registro</h3>
+            <p>@property.DataAtual.ToString("dddd, dd MMMM yyyy")</p>
+          
+                    </div>
+                    <div>
+                        <h3>Registro</h3>
+                        <textarea rows="11" class="col-12">@property.Registros</textarea>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-primary col-2"><a
+                                href="/Anotacao/Update?Id=@property.IdAnotacao">Editar</a></button>
+                        <button type="button" class="btn btn-outline-primary col-2"><a
+                                href="/Anotacao/Delete?Id=@property.IdAnotacao">Excluir</a></button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
